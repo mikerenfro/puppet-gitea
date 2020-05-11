@@ -38,7 +38,7 @@ class gitea::service (
       hasstatus  => false,
       hasrestart => false,
       provider   => $service_provider,
-      subscribe  => Remote_File['gitea'],
+      subscribe  => Archive["${installation_directory}/gitea"],
     }
   }
 }
