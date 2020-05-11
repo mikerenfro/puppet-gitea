@@ -155,11 +155,10 @@ class gitea::install (
 
     $source_url="${base_url}/${version}/gitea-${version}-${kernel_down}-${arch}"
 
-    remote_file { 'gitea':
+    archive { "${installation_directory}/gitea":
       ensure        => $package_ensure,
-      path          => "${installation_directory}/gitea",
       source        => $source_url,
-      proxy         => $proxy,
+      proxy_server  => $proxy,
       checksum      => $checksum,
       checksum_type => $checksum_type,
       notify        => [
